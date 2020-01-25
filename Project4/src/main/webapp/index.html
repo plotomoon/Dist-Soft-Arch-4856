@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Movie Search</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	  <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div class="box">
+         <form>
+            <h1 style="text-align:center">Movie Search</h1>
+            <br> <center>
+            Enter Keywords: <input type="text" id="keyword" name="Keyword">
+            <input type="button" onclick="submitKey(keyword);" value="Submit Keyword"/>   
+            <button onClick="window.location.reload();">Clear</button>
+            </center>
+         </form>
+      </div>
+      <div style="text-align:center" id='update-target'>            
+            <ol></ol>
+        </div>
+        <script>
+         function submitKey() {  
+             var movieFound = false;
+             var keyword = document.getElementById("keyword").value;
+           $.ajax({
+                    beforeSend: function (req) {
+                        req.setRequestHeader("Accept", "application/xml");
+                    },
+                    type: "GET",
+                    url: "http://localhost:8080/MultiDAOServlet/service",
+                    dataType: "xml",
+
+                    success:
+                            function (xml) {
+                                $(xml).find('dvd').each(function () {
+                                    //get sql info
+                                    var title = $(this).find('title').text();
+                                    var director = $(this).find('director').text();
+                                    var imdbRef = $(this).find('imdbRef').text();
+                                    var year = $(this).find('year').text();
+                                    var metascore = $(this).find('metascore').text();
+                                    var rottenTomatoes = $(this).find('rottenTomatoes').text();
+                                    var keyword1 = $(this).find('keyword1').text();
+                                    var keyword2 = $(this).find('keyword2').text();
+                                    var keyword3 = $(this).find('keyword3').text();
+                                    
+                                      
+                                    if((keyword === keyword1) || (keyword === keyword2) || (keyword === keyword3) ){
+                                    $('<li></li>').html(
+                                    'Title: ' + title + '<br> Director: ' + director + '<br> ImdbRef: ' + imdbRef + '<br> Year: ' + year + '<br> RottenTommatoes: ' + rottenTomatoes +
+                                    '<br> MetaScore: ' + metascore
+                                   ).appendTo('#update-target ol');
+                                    movieFound = true;
+                                   }
+                                }); //close each(
+                                if(!movieFound){
+                                   $('<p style="text-align:center"></p').html("No movie for keyword: " + keyword + " Some suggestions: "
+                                           +" donkey, swamp, ogre, robot, friendship, concert, family").appendTo('#update-target ol');  
+                                }
+                            },
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText;
+                        alert('Error - ' + errorMessage);
+                    } 
+                }); //close $.ajax(
+             //show search result
+         }  
+        </script>
+   </body>
+</html>

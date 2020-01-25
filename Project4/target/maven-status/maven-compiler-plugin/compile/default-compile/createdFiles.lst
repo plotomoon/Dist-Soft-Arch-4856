@@ -1,0 +1,5 @@
+com/mycompany/entities/DVD.class
+com/mycompany/service/DVDServlet.class
+com/mycompany/model/Model.class
+com/mycompany/model/Library.class
+com/mycompany/entities/DVDDAO.class

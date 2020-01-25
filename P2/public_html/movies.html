@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Movie Search</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link rel="stylesheet" href="movies.css">
+    </head>
+    <body>  
+        <form>
+            <h1> Movie Search</h1>
+            Enter Keyword: <input type="text" id="keyword" name="Keyword">
+            <input type="button" onclick="submitKey();" value="Submit Query"/>
+        </form>
+
+        <section>
+            <div id="main"> </div>
+            <div id="director"></div>
+            <div id="company"></div>
+            <div id="year"></div>
+            <div id="runtime"></div>
+        </section>
+
+        <script>
+            function submitKey() {
+                $(document).ready(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: "playlist.xml",
+                        dataType: "xml",
+                        success:
+                                function (xml) {
+                                    var keyword = document.getElementById("keyword").value;
+                                    if (keyword == "shrek" || keyword == "ogre" || keyword == "swamp") {
+                                        var movie = $(xml).find('dvd')[0];
+                                        var title = $(movie).find('title').text();
+                                        var director = $(movie).find('director').find('name').text();
+                                        var company = $(movie).find('company').text();
+                                        var year = $(movie).find('year').text();
+                                        var runtime = $(movie).find('runtime').text();
+                                        $('#main').html("Movie: " + title);
+                                        $('#director').html("Director: " + director);
+                                        $('#company').html("Company: " + company);
+                                        $('#year').html("Year: " + year);
+                                        $('#runtime').html("Minutes: " + runtime);
+                                    } else if (keyword == "robot" || keyword == "friendship" || keyword == "government") {
+                                        var movie = $(xml).find('dvd')[1];
+                                        var title = $(movie).find('title').text();
+                                        var director = $(movie).find('director').find('name').text();
+                                        var company = $(movie).find('company').text();
+                                        var year = $(movie).find('year').text();
+                                        var runtime = $(movie).find('runtime').text();
+                                        $('#main').html("Movie: " + title);
+                                        $('#director').html("Director: " + director);
+                                        $('#company').html("Company: " + company);
+                                        $('#year').html("Year: " + year);
+                                        $('#runtime').html("Minutes: " + runtime);
+                                    } else if (keyword == "travel" || keyword == "concert" || keyword == "father") {
+                                        var movie = $(xml).find('dvd')[2];
+                                        var title = $(movie).find('title').text();
+                                        var director = $(movie).find('director').find('name').text();
+                                        var company = $(movie).find('company').text();
+                                        var year = $(movie).find('year').text();
+                                        var runtime = $(movie).find('runtime').text();
+                                        $('#main').html("Movie: " + title);
+                                        $('#director').html("Director: " + director);
+                                        $('#company').html("Company: " + company);
+                                        $('#year').html("Year: " + year);
+                                        $('#runtime').html("Minutes: " + runtime);
+                                    }
+                                    
+                                },
+                        error: function (xhr, status, error) {
+                            var errorMessage = xhr.status + ': ' + xhr.statusText;
+                            alert('Error - ' + errorMessage);
+                        }
+
+                    }); //close $.ajax(
+                }); //close $(
+            }
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,9 @@
+dsa1/jdbc/PlaylistSearch.class
+dsa1/jdbc/example/BookNotAvailableException.class
+dsa1/jdbc/JDBCDescriptor.class
+dsa1/jdbc/example/StudentNotFoundException.class
+dsa1/jdbc/example/BookNotUniqueException.class
+dsa1/jdbc/example/Renter.class
+dsa1/jdbc/example/BookNotFoundException.class
+dsa1/jdbc/example/LibraryException.class
+dsa1/jdbc/example/StudentNotUniqueException.class

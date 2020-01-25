@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS DVDLibrary;
+USE DVDLibrary;
+DROP TABLE IF EXISTS DVDS;
+
+CREATE TABLE DVDS (
+  DVDId INTEGER UNSIGNED NOT NULL,
+  DVDTitle VARCHAR(45) NOT NULL,
+  DVDdirector VARCHAR(45) NOT NULL,
+  DVDimdbRef VARCHAR(30) NOT NULL,
+  DVDyear INTEGER UNSIGNED NOT NULL,
+  DVDmetascore INTEGER UNSIGNED NOT NULL,
+  DVDrottenTomatoes INTEGER UNSIGNED NOT NULL, 
+  DVDkeyword1 VARCHAR(100) NOT NULL,
+  DVDkeyword2 VARCHAR(100) NOT NULL,
+  DVDkeyword3 VARCHAR(100) NOT NULL,
+  PRIMARY KEY (DVDId)
+);
+
+INSERT INTO DVDS VALUES (1,"Shrek","Andrew Adamson","tt0126029", 2001, 84, 88, 'donkey', 'ogre', 'swamp');
+INSERT INTO DVDS VALUES (2,"Iron Giant","Brad Bird","tt0129167", 1999, 85, 96, 'robot', 'friendship', 'government');
+INSERT INTO DVDS VALUES (3,"A Goofy Movie","Kevin Lima","tt0113198", 1995, 100, 88, 'family', 'travel', 'concert');

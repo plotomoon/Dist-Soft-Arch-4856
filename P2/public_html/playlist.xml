@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="playlist.css"?>
+<!DOCTYPE playlist  SYSTEM "playlist.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<playlist>
+    <dvd id="1">
+        <title>Shrek</title>
+        <director> 
+            <name>Andrew Adamson</name>
+            <birth>1/December/1966</birth>
+        </director>
+        <company>DreamWorks Animation</company>
+        <runtime>95</runtime>
+        <imdbRef>tt0126029</imdbRef>
+        <year>2001</year>
+        <metascore>84</metascore>
+        <rottenTomatoes>88</rottenTomatoes>
+        <keywords idKey="1">
+            <keyword>shrek</keyword>
+            <keyword>ogre</keyword>
+            <keyword>swamp</keyword>
+        </keywords>
+    </dvd>
+    <dvd id="2">
+        <title>Iron Giant</title>
+        <director> 
+            <name>Brad Bird</name> 
+            <birth>24/September/1957</birth>
+        </director>
+        <company>Warner Brothers</company>
+        <runtime>86</runtime>
+        <imdbRef>tt0129167</imdbRef>
+        <year>1999</year>
+        <metascore>85</metascore>
+        <rottenTomatoes>96</rottenTomatoes>
+        <keywords idKey="2">
+            <keyword>robot</keyword>
+            <keyword>friendship</keyword>
+            <keyword>government</keyword>
+        </keywords>
+    </dvd>
+    <dvd id="3">
+        <title>A Goofy Movie</title>
+        <director> 
+            <name>Kevin Lima</name> 
+            <birth>12/June/1962</birth>
+        </director>
+        <company>The Walt Disney Company</company>
+        <runtime>78</runtime>
+        <imdbRef>tt0113198</imdbRef>
+        <year>1995</year>
+        <metascore>N/A</metascore>
+        <rottenTomatoes>44</rottenTomatoes>
+        <keywords idKey="3">
+            <keyword>father son relationship</keyword>
+            <keyword>travel</keyword>
+            <keyword>concert</keyword>
+        </keywords>
+    </dvd>
+</playlist>
